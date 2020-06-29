@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <header>
+        <h1>Calculator</h1>
+        <div id="calculator">
+            <input type="text" name="display" id="display" disabled>
+            <input type="number" name="aux" id="aux" placeholder="aux" disabled>            
+            <p id="resultado"></p>
+            <button id="1" value="1" onclick="mount(this.value)">1</button>
+            <button id="2" value="2" onclick="mount(this.value)">2</button>
+            <button id="somar" onclick="calcular('Soma')">+</button>
+            <button id="clear" onclick="clearNumber()">C</button>
+            <button id="clearAll" onclick="clearAllNumber()">CE</button>
+            <button id="equals" onclick="equals()">=</button>
+        </div>
+    </header>
+    <script src="script.js"></script>    
+</body>
+</html>
