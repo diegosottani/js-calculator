@@ -19,63 +19,44 @@ arr2.map( (element) => {
 
 // Ao clicar em uma operação
 arr1.map( (element) => {
-    element.onclick = () => {
+    element.onclick = () => { 
         // Lembra o tipo de operação selecionada (+ - etc)
-        operation.value = element.id 
-        
-        // Avalia qual campo está vazio, para gravar um valor e preparar para a operação
-        if(display.value != ""){
-            if(aux1.value == ""){
+        //operation.value = element.id
+
+        if(aux1.value == ""){
+            if(display.value){
                 aux1.value = display.placeholder = display.value
                 display.value = ""
-            }else{
-                result()
-            }    
+            }
         }else{
-
-        }
+            if(display.value){                
+                let calc = calculation(Number(aux1.value), Number(display.value))
+                display.value = ""
+                display.placeholder = aux1.value = calc    
+            }           
+        } 
+        operation.value = element.id
     }
 })
 
-function result() {  
-    let num1 = 0
-    let num2 = 0
-    let calc = 0
-    // Operação inicial com numero oculto. Ex: aperta 1 + e ele complementa com outro 1 no placeholder
-    if(display.value == "" && aux1.value != "" && aux2.value == ""){alert("if1")
-        num1 = Number(aux1.value)
-        num2 = Number(display.placeholder) 
-        calc = calculation(num1, num2)
-        display.placeholder = aux2.value = calc 
-        cleanOp(aux1)            
-    }
-    // Operação normal com 2 valores apenas. Ex: num1 + num2 = res
-    else if(display.value != "" && aux1.value != "" && aux2.value == ""){alert("if2")
-        num1 = Number(aux1.value)
-        num2 = Number(display.value) 
-        calc = calculation(num1, num2)
-        aux2.value = display.placeholder = calc
-        display.value = ""
-        cleanOp(aux1)
-    }
-    //else if(display.value != "" && aux1.value == "" && aux2.value != ""){alert("haha")}
-
-    // Operação normal após resultado. Ex: fez uma op normal (num1 + num2 = res) então realiza outra ação com o resultado
-    else if(display.value != "" && aux1.value == "" && aux2.value != ""){alert("if3")
-        num1 = Number(aux2.value)
-        num2 = Number(display.value)
-        calc = calculation(num1, num2)
-        aux1.value = display.placeholder = calc
-        display.value = ""
-        cleanOp(aux2)
-    }  
-}
-
+// Limpa os campos
 function cleanOp(field){
     field.value = ""   
     operation.value = ""
 }
 
+// Ao clicar no botão igual =
+function result() {
+    if(aux1.value){
+        if(display.value){
+            let calc = calculation(Number(aux1.value), Number(display.value))
+            display.value = ""
+            display.placeholder = aux1.value = calc
+        }
+    }    
+}
+
+// Faz o cálculo dos params da função result() soma, mult, etc
 function calculation(n1,n2) {
     let res = 0   
     let op = operation.value
@@ -86,6 +67,12 @@ function calculation(n1,n2) {
         case "minus":
             res = n1 - n2            
             break;
+        case "mult":
+            res = n1 * n2            
+            break;
+        case "divide":
+            res = n1 / n2            
+            break;            
         default:
             break;
     }
