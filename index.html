@@ -11,17 +11,14 @@
         <h1>Calculator</h1>
     </header>
     <div id="auxs">
-        <input type="number" name="aux1" id="aux1" disabled>
-        <input type="text" name="operation" id="operation" disabled>
-        <input type="number" name="aux2" id="aux2" disabled>
+        <input type="number" name="aux1" id="aux1" hidden>
+        <input type="text" name="operation" id="operation" hidden>
     </div>
     <div id="calculator" class="grid-container">        
-        <input type="text" name="displayCache" id="displayCache" class="painel displayCache" disabled>
+        <input type="number" name="displayCache" id="displayCache" class="grid-item painel displayCache" disabled>
         <input type="number" name="display" id="display" class="grid-item painel" placeholder="0" disabled>        
-        <button id="backspace" class="grid-item action"><=</button>
-        <button id="clearAll" class="grid-item action" onclick="clearAllNumber()">CE</button>
-        <button id="clearAll" class="grid-item action" onclick="clearAllNumber()">CE</button>
-        <button id="clear" class="grid-item action" >A</button>
+        <button id="limpar" class="grid-item plus">CE</button>
+        <button id="limparTudo" class="grid-item plus">C</button>        
         <button id="7" class="grid-item numeric" value="7">7</button>
         <button id="8" class="grid-item numeric" value="8">8</button>
         <button id="9" class="grid-item numeric" value="9">9</button>          
@@ -34,10 +31,9 @@
         <button id="2" class="grid-item numeric" value="2">2</button>
         <button id="3" class="grid-item numeric" value="3">3</button>
         <button id="minus" class="grid-item operator">-</button>
-        <button id="zero" class="grid-item numeric" value="0">0</button>
-        <button id="ponto" class="grid-item numeric" value=".">.</button>
+        <button id="zero" class="grid-item numeric plus" value="0">0</button>        
         <button id="sum" class="grid-item operator">+</button>
-        <button id="equal" class="grid-item" onclick="result()">=</button>
+        <button id="equal" class="grid-item">=</button>
     </div>
     <script src="script.js"></script>    
 </body>

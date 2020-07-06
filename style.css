@@ -21,3 +21,18 @@
     width: 430px;
     text-align: right;
 }
+
+.displayCache{
+    width: 430px;
+    background-color: #2196F3;
+    border: none;
+    padding: 2px 2px; 
+    margin: 5px;
+    font-size: 10px;
+    text-align: center;
+    color: white; 
+}
+
+.plus{
+    width: 225px;
+}

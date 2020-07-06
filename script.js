@@ -1,12 +1,10 @@
 // não é um array, é um nodeList
 const operator = document.querySelectorAll(".operator") 
 const numeric = document.querySelectorAll(".numeric")
-const action = document.querySelectorAll("action")
 
 // transforma em array
 const arr1 = Array.from(operator)
 const arr2 = Array.from(numeric)
-const arr3 = Array.from(action)
 
 // Ao clicar em um número
 arr2.map( (element) => {
@@ -39,14 +37,22 @@ arr1.map( (element) => {
     }
 })
 
-// Limpa os campos
-function cleanOp(field){
-    field.value = ""   
+// Limpa todos os campos
+limparTudo.onclick = () => {
+    display.value = ""
+    display.placeholder = 0
+    aux1.value = ""
     operation.value = ""
 }
 
+// Limpa o último numero digitado
+limpar.onclick = () => {
+    display.value = ""
+    display.placeholder = 0
+}    
+
 // Ao clicar no botão igual =
-function result() {
+equal.onclick = () => {
     if(aux1.value){
         if(display.value){
             let calc = calculation(Number(aux1.value), Number(display.value))
